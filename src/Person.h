@@ -11,7 +11,7 @@
 #include <fstream>
 #include "XmlObject.h"
 
-class Person
+class Person:XmlObject
 {
 	XmlObject_string name;
 	XmlObject_string surname;
@@ -20,9 +20,17 @@ class Person
 	XmlObject_int wzrost;
 public:
 	Person(string, string, char=0, int=0, int=0);
-	void save_xml();
-	void read_xml();
+	Person(string);
+	string to_xml();
+	void from_xml(ifstream&);
 	void wypisz();
+	string ret_elem();
+	friend
+	ifstream& operator >>(ifstream& , Person& );
+	friend
+	ofstream& operator <<(ofstream& , Person);
+	friend
+	ostream& operator <<(ostream&, Person);
 
 };
 

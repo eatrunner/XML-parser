@@ -7,10 +7,12 @@
 #include "Person.h"
 
 Person::Person(string xname, string xsurnm, char xsex, int xId, int xwzrost):
+					XmlObject("person"),
 					name("name",xname), surname("surname",xsurnm), sex("sex",xsex),
 					pesel("pesel",xId), wzrost("wzrost",xwzrost){}
 
-void Person::save_xml()
+
+string Person::to_xml()
 {
 	stringstream tmp;
 	string output;
@@ -24,11 +26,20 @@ void Person::save_xml()
 			File<<output;
 	File.close();
 
+	return output;
+
 }
 
-void Person::read_xml()
+void Person::from_xml(ifstream& File)
 {
-
+	char c=0;
+	File>>c;
+	for(c=0;  File>>c && c!='<';);
+	name.from_xml(File);
+	surname.from_xml(File);
+	sex.from_xml(File);
+	pesel.from_xml(File);
+	wzrost.from_xml(File);
 }
 
 void Person::wypisz()
@@ -43,3 +54,29 @@ void Person::wypisz()
 	cout<<output;
 }
 
+string Person::ret_elem()
+{
+	return element;
+}
+
+ifstream& operator >>(ifstream& File, Person& p)
+{
+	if(!File.is_open())
+		cerr<<"File not open";
+	p.from_xml(File);
+	return File;
+}
+
+ofstream& operator <<(ofstream& File, Person p)
+{
+	if(!File.is_open())
+		cerr<<"File not open";
+	File<<p.to_xml();
+	return File;
+}
+
+ostream& operator <<(ostream& os, Person p)
+{
+	os<<p.to_xml();
+	return os;
+}
