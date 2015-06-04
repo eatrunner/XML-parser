@@ -50,6 +50,8 @@ public:
 	virtual string to_xml();
 	void from_xml(ifstream&);
 	string ret_elem();
+	int ret_value();
+	void set_value(int);
 	friend
 	ifstream& operator >>(ifstream& File, XmlObject_int& x);
 	friend
@@ -73,5 +75,24 @@ public:
 	friend
 	ostream& operator <<(ostream& os, XmlObject_string x);
 };
+
+template <class C, int size=0>
+class Vect:public XmlObject
+{
+
+	XmlObject_int SIZE;
+	C *Tab;
+	int count;
+	enum{empty, full, some__elements}state;
+public:
+	Vect(string);
+	~Vect();
+	bool add(C);
+	bool remove(int);
+	string to_xml();
+	void from_xml(ifstream&);
+
+};
+
 
 #endif /* XMLOBJECT_H_ */

@@ -35,9 +35,10 @@ void XmlObject_string::from_xml(ifstream& File)
 		}
 	}
 	for(c=0; File>>c && c!='<';++j)
-		name[j]=c;
-	++j;
-	name[j]=0;
+		tmp[j]=c;
+	tmp[j]='\0';
+	tmp.resize(j);
+	name=tmp;
 	tmp="</"+element+'>';
 	for(int i=1;i<tmp.length() && File>>c;i++)
 	{
@@ -108,9 +109,10 @@ void XmlObject_int::from_xml(ifstream& File)
 	{
 		tmp[j]=c;
 	}
+	--j;
 	for(int i=0; i<=j; ++i)
 	{
-		value+=pow(10,(j-i))*(int)tmp[i];
+		value+=pow(10,(j-i))*((int)tmp[i]-48);
 	}
 	tmp="</"+element+'>';
 	for(int i=1;i<tmp.length() && File>>c;i++)
@@ -128,6 +130,16 @@ void XmlObject_int::from_xml(ifstream& File)
 string XmlObject_int::ret_elem()
 {
 	return XmlObject::element;
+}
+
+int XmlObject_int::ret_value()
+{
+	return value;
+}
+
+void XmlObject_int::set_value(int x)
+{
+	value=x;
 }
 
 ifstream& operator >>(ifstream& File, XmlObject_int& x)
@@ -213,4 +225,97 @@ ostream& operator <<(ostream& os, XmlObject_char x)
 {
 	os<<x.to_xml();
 	return os;
+}
+
+template <class XmlObject_string, int size>
+Vect<XmlObject_string, size>::Vect(string xelem)
+					:XmlObject(xelem),count(0),SIZE(size), state(empty)
+{
+	Tab=new XmlObject_string[size];
+}
+
+template <class XmlObject_string, int size>
+Vect<XmlObject_string, size>::~Vect()
+{
+	delete Tab;
+}
+
+template <class XmlObject_string, int size>
+bool Vect<XmlObject_string, size>::add(XmlObject_string no)
+{
+	if(state==full)
+	{
+		cerr<<"pelny vector"<<endl;
+		return 0;
+	}
+	else
+	{
+		++count;
+		Tab[count]=no;
+		if(count==SIZE.ret_value())
+			state=full;
+		if(state==empty)
+			state=some__elements;
+		return 1;
+	}
+
+}
+
+template <class XmlObject_string, int size>
+bool Vect<XmlObject_string, size>::remove(int x)
+{
+	if(state==empty)
+	{
+		cerr<<"pusty vector"<<endl;
+		return 0;
+	}
+	Tab[count]=NULL;
+	--count;
+	if(state==full)
+		state==some__elements;
+	if(count==0)
+		state=empty;
+	return 1;
+}
+
+template <class XmlObject_string, int size>
+string Vect<XmlObject_string, size>::to_xml()
+{
+	stringstream tmp=NULL;
+	string output=NULL;
+	int size_tmp=SIZE.ret_value();
+	tmp<<"<"+element+'>';
+	SIZE.set_value(count);
+	tmp<<SIZE.to_xml();
+	SIZE.set_value(size_tmp);
+	if(state==empty)
+	{
+		cerr<<"Empty vector, nothing to parse."<<endl;
+		return 0;
+	}
+	for(int i=0; i<=count; ++i)
+	{
+		tmp<<Tab[i].to_xml();
+	}
+	tmp<<"</"+element+'>';
+	output=tmp.str();
+	return output;
+}
+
+template <class XmlObject_string, int size>
+void Vect<XmlObject_string, size>::from_xml(ifstream& File)
+{
+	char c=0;
+	string tmp='<'+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
+	SIZE.from_xml(File);
+
+
 }

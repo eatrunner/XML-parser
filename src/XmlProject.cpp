@@ -23,7 +23,7 @@ int main()
 	Person ktos(imie, nazw, plec, id, wzrost);
 	Person ktos2("stas", "nieczyj", 'm', 876, 123);
 	File.open(file.c_str(), fstream::in);
-	File>>ktos;
+	File>>ktos2;
 
 	File.close();
 	cout<<ktos<<endl<<ktos2;
