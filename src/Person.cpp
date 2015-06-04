@@ -33,13 +33,29 @@ string Person::to_xml()
 void Person::from_xml(ifstream& File)
 {
 	char c=0;
-	File>>c;
-	for(c=0;  File>>c && c!='<';);
+	string tmp='<'+element+'>';
+	for(int i=0;i<tmp.length() && File>>c ;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 	name.from_xml(File);
 	surname.from_xml(File);
 	sex.from_xml(File);
 	pesel.from_xml(File);
 	wzrost.from_xml(File);
+	tmp="</"+element+">";
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 }
 
 void Person::wypisz()

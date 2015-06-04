@@ -24,11 +24,29 @@ string XmlObject_string::to_xml()
 void XmlObject_string::from_xml(ifstream& File)
 {
 	int j=0;
-	for(char c=0; File>>c && c!='>';);
-	for(char c=0; File>>c && c!='<';++j)
+	char c=0;
+	string tmp='<'+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
+	for(c=0; File>>c && c!='<';++j)
 		name[j]=c;
-	name[++j]=0;
-	for(char c=0; File>>c && c!='>';);
+	++j;
+	name[j]=0;
+	tmp="</"+element+'>';
+	for(int i=1;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 
 }
 
@@ -74,11 +92,35 @@ string XmlObject_int::to_xml()
 void XmlObject_int::from_xml(ifstream& File)
 {
 	value=0;
+	char c=0;
 	int j=0;
-	for(char c=0; File>>c && c!='>';);
-	for(char c=0; File>>c && c!='<';++j)
-		value+=j*(int)c;
-	for(char c=0; File>>c && c!='>';);
+	string tmp='<'+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
+	tmp.clear();
+	for(j=0; File>>c && c!='<';++j)
+	{
+		tmp[j]=c;
+	}
+	for(int i=0; i<=j; ++i)
+	{
+		value+=pow(10,(j-i))*(int)tmp[i];
+	}
+	tmp="</"+element+'>';
+	for(int i=1;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 
 
 }
@@ -123,9 +165,27 @@ string XmlObject_char::to_xml()
 
 void XmlObject_char::from_xml(ifstream& File)
 {
-	for(char c=0; File>>c && c!='>';);
+
+	char c=0;
+	string tmp='<'+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 	File>>mark;
-	for(char c=0; File>>c && c!='>';);
+	tmp="</"+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 }
 
 string XmlObject_char::ret_elem()

@@ -22,14 +22,11 @@ int main()
 	ofstream File2;
 	Person ktos(imie, nazw, plec, id, wzrost);
 	Person ktos2("stas", "nieczyj", 'm', 876, 123);
-	//ktos.save_xml();
-
 	File.open(file.c_str(), fstream::in);
 	File>>ktos;
-	cout<<ktos<<endl<<ktos2;;
+
 	File.close();
-	File2.open(file.c_str(), fstream::out);
-	File2<<ktos2;
-	File2.close();
+	cout<<ktos<<endl<<ktos2;
+
 	return 0;
 }
