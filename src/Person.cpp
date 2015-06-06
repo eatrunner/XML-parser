@@ -1,27 +1,28 @@
 /*
- * person.cpp
+ * \file Person.cpp
+ * \Zawiera definicje dunkcji skladowych klasy Person
  *
  *  Created on: 30 maj 2015
  *      Author: karol
  */
 #include "Person.h"
 
-Person::Person(string xname, string xsurnm, char xsex, int xId, int xwzrost):
-					XmlObject("person"),
-					name("name",xname), surname("surname",xsurnm), sex("sex",xsex),
-					pesel("pesel",xId), wzrost("wzrost",xwzrost){}
+Person::Person(string xname, string xsurnm, char xsex, int xId, int xwzrost, string xfriends,
+		string vectElem, int size):
+					XmlObject("person"),name("name",xname), surname("surname",xsurnm),
+					sex("sex",xsex), pesel("pesel",xId), wzrost("wzrost",xwzrost),
+					friends(xfriends, vectElem, size){}
 
 
 string Person::to_xml()
 {
 	stringstream tmp;
-	string output;
 	ofstream File;
 	tmp<<"<person>";
 	tmp<<name.to_xml()<<surname.to_xml()<<sex.to_xml()<<pesel.to_xml()
-			<<wzrost.to_xml();
+			<<wzrost.to_xml()<<friends.to_xml();
 	tmp<<"</person>";
-	output=tmp.str();
+	string output=tmp.str();
 	File.open("test.xml", fstream::out);
 			File<<output;
 	File.close();
@@ -73,6 +74,11 @@ void Person::wypisz()
 string Person::ret_elem()
 {
 	return element;
+}
+
+void Person::add_pers(XmlObject_string no)
+{
+	friends.push(no);
 }
 
 ifstream& operator >>(ifstream& File, Person& p)

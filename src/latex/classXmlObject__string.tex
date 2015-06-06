@@ -1,0 +1,126 @@
+\hypertarget{classXmlObject__string}{\section{Xml\-Object\-\_\-string Class Reference}
+\label{classXmlObject__string}\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}}
+}
+
+
+{\ttfamily \#include $<$Xml\-Object.\-h$>$}
+
+Inheritance diagram for Xml\-Object\-\_\-string\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classXmlObject__string}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classXmlObject__string_af8235aac95dee8af1d4ad9f058865948}{Xml\-Object\-\_\-string} (string=\char`\"{}\textbackslash{}0\char`\"{}, string=\char`\"{}\textbackslash{}0\char`\"{})
+\item 
+string \hyperlink{classXmlObject__string_aea62ae01f9fbbe6718c7269d9dc0591f}{to\-\_\-xml} ()
+\item 
+void \hyperlink{classXmlObject__string_a45076d31e063208d1386741f2e1074d3}{from\-\_\-xml} (ifstream \&)
+\item 
+string \hyperlink{classXmlObject__string_a14cc967eb78c9293c49055d54d602717}{ret\-\_\-elem} ()
+\item 
+void \hyperlink{classXmlObject__string_a41323b0a911aab6145da0ec527329c4a}{set\-\_\-elem} (string)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \& \hyperlink{classXmlObject__string_a5790a0bb79553d3597a8498aaf8118a2}{operator$>$$>$} (ifstream \&File, \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} \&x)
+\item 
+ofstream \& \hyperlink{classXmlObject__string_acf1a3de06b876cac2c8b5ae510d13620}{operator$<$$<$} (ofstream \&File, \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} x)
+\item 
+ostream \& \hyperlink{classXmlObject__string_a47a42d8624b5b6ce6252d2cf6a815b8a}{operator$<$$<$} (ostream \&os, \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} x)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Klasa \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} i dziedziczy po klasie \hyperlink{classXmlObject}{Xml\-Object}. Przechowuje napisy. Zawiera zmienna klasy string i wszystkie metody sluzace parsowaniu jej do formatu X\-M\-L. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classXmlObject__string_af8235aac95dee8af1d4ad9f058865948}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}}
+\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{Xml\-Object\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Object\-\_\-string\-::\-Xml\-Object\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem = {\ttfamily \char`\"{}\textbackslash{}0\char`\"{}}, }
+\item[{string}]{xname = {\ttfamily \char`\"{}\textbackslash{}0\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{classXmlObject__string_af8235aac95dee8af1d4ad9f058865948}
+Kostruktor. Jego argumenty zawieraja wartosci zmiennych kolejno\-:element, name. Domyślnie ustawiane sa na wskazniki zerowe. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classXmlObject__string_a45076d31e063208d1386741f2e1074d3}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!from\-\_\-xml@{from\-\_\-xml}}
+\index{from\-\_\-xml@{from\-\_\-xml}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{from\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}void Xml\-Object\-\_\-string\-::from\-\_\-xml (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__string_a45076d31e063208d1386741f2e1074d3}
+Funkcja from xml. Wczytuje zawartosc struktury z formatu X\-M\-L. Jak argument przyjmuje zmienna plikowa wskazujaca na O\-T\-W\-A\-R\-T\-Y plik. 
+
+Implements \hyperlink{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{Xml\-Object}.
+
+\hypertarget{classXmlObject__string_a14cc967eb78c9293c49055d54d602717}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!ret\-\_\-elem@{ret\-\_\-elem}}
+\index{ret\-\_\-elem@{ret\-\_\-elem}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{ret\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Object\-\_\-string\-::ret\-\_\-elem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__string_a14cc967eb78c9293c49055d54d602717}
+Funkcja return element. Zwraca wartosc zmiennaj element. 
+
+Implements \hyperlink{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{Xml\-Object}.
+
+\hypertarget{classXmlObject__string_a41323b0a911aab6145da0ec527329c4a}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!set\-\_\-elem@{set\-\_\-elem}}
+\index{set\-\_\-elem@{set\-\_\-elem}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{set\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}void Xml\-Object\-\_\-string\-::set\-\_\-elem (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem}
+\end{DoxyParamCaption}
+)}}\label{classXmlObject__string_a41323b0a911aab6145da0ec527329c4a}
+Funkcja set element. Ustawia wartosc element na wartosc podana w argumencie. \hypertarget{classXmlObject__string_aea62ae01f9fbbe6718c7269d9dc0591f}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!to\-\_\-xml@{to\-\_\-xml}}
+\index{to\-\_\-xml@{to\-\_\-xml}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{to\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Object\-\_\-string\-::to\-\_\-xml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__string_aea62ae01f9fbbe6718c7269d9dc0591f}
+Funkcja to xml. Nie przyjmuje argumentow. Parsuje obiekt do formatu X\-M\-L ($<$element$>$name$<$/element$>$) 
+
+Implements \hyperlink{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{Xml\-Object}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classXmlObject__string_acf1a3de06b876cac2c8b5ae510d13620}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{File, }
+\item[{{\bf Xml\-Object\-\_\-string}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__string_acf1a3de06b876cac2c8b5ae510d13620}
+Zaprzyjazniony operator. Umozliwia parsowanie do zmiennej plikowej (File) z obiektu (obiekt) uzywajac zapisu\-: File$<$$<$obiekt; Zapisywanie jest do formatu X\-M\-L. \hypertarget{classXmlObject__string_a47a42d8624b5b6ce6252d2cf6a815b8a}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{{\bf Xml\-Object\-\_\-string}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__string_a47a42d8624b5b6ce6252d2cf6a815b8a}
+Zaprzyjazniony operator. Umozliwia parsowanie do strumienia wyjsciowego (cout) z obiektu (obiekt) uzywajac zapisu\-: cout$<$$<$obiekt; \hypertarget{classXmlObject__string_a5790a0bb79553d3597a8498aaf8118a2}{\index{Xml\-Object\-\_\-string@{Xml\-Object\-\_\-string}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!XmlObject_string@{Xml\-Object\-\_\-string}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}ifstream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File, }
+\item[{{\bf Xml\-Object\-\_\-string} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__string_a5790a0bb79553d3597a8498aaf8118a2}
+Zaprzyjazniony operator. Umozliwia odczyt ze zmiennej plikowej (File) do obiektu (obiekt) uzywajac zapisu\-: File$>$$>$obiekt; Plik musi zawierac strukture w formacie X\-M\-L. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{XmlObject_8h}{Xml\-Object.\-h}\item 
+Xml\-Object.\-cpp\end{DoxyCompactItemize}

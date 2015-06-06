@@ -1,0 +1,112 @@
+\hypertarget{classXmlVect}{\section{Xml\-Vect Class Reference}
+\label{classXmlVect}\index{Xml\-Vect@{Xml\-Vect}}
+}
+
+
+{\ttfamily \#include $<$Xml\-Object.\-h$>$}
+
+Inheritance diagram for Xml\-Vect\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classXmlVect}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classXmlVect_a031b710cdcc779a696040b98f21381e4}{Xml\-Vect} (string, string, int)
+\item 
+\hyperlink{classXmlVect_a0a27cde8a84f647d128260ac5df76165}{$\sim$\-Xml\-Vect} ()
+\item 
+\hypertarget{classXmlVect_ac8b30d8d46632736cbcce093231f89bc}{void {\bfseries set\-\_\-elem} (string, string)}\label{classXmlVect_ac8b30d8d46632736cbcce093231f89bc}
+
+\item 
+string \hyperlink{classXmlVect_a6679bc57a3e6712b99b806f1887e2dc9}{ret\-\_\-elem} ()
+\item 
+bool \hyperlink{classXmlVect_aa8c43c842aad1b0aa7722f7eaf2245ef}{push} (\hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string})
+\item 
+bool \hyperlink{classXmlVect_af89d6523826f072d67f131d0ba4312aa}{remove} ()
+\item 
+string \hyperlink{classXmlVect_a5e67ef9b8b9faf9062b6cac413f196a4}{to\-\_\-xml} ()
+\item 
+void \hyperlink{classXmlVect_a105c1cd2e05c3f8512d71adbd08e91ac}{from\-\_\-xml} (ifstream \&)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Klasa \hyperlink{classXmlVect}{Xml\-Vect} dziedzieczy po \hyperlink{classXmlObject}{Xml\-Object}. Zawiera tablice obiektow \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string}. Posiada wszytkie metody potrzebne do parsowania do X\-M\-L i odczytu. Zapis ma forme\-: $<$element$>$ $<$\-S\-I\-Z\-E$>$...$<$/\-S\-I\-Z\-E$>$ $<$Tab\mbox{[}0\mbox{]}.element$>$Tab\mbox{[}0\mbox{]}.name$<$/\-Tab\mbox{[}0\mbox{]}.element$>$ $<$Tab\mbox{[}n\mbox{]}.element$>$Tab\mbox{[}n\mbox{]}.name$<$/\-Tab\mbox{[}n\mbox{]}.element$>$ $<$/element$>$ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classXmlVect_a031b710cdcc779a696040b98f21381e4}{\index{Xml\-Vect@{Xml\-Vect}!Xml\-Vect@{Xml\-Vect}}
+\index{Xml\-Vect@{Xml\-Vect}!XmlVect@{Xml\-Vect}}
+\subsubsection[{Xml\-Vect}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Vect\-::\-Xml\-Vect (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem, }
+\item[{string}]{elem\-\_\-list, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{classXmlVect_a031b710cdcc779a696040b98f21381e4}
+Kostruktor. Argumenty\-:wartosc docelowa zmiennej element, wartosc docelowa zmienne element elementow listy, wielkosc tablicy elementow. \hypertarget{classXmlVect_a0a27cde8a84f647d128260ac5df76165}{\index{Xml\-Vect@{Xml\-Vect}!$\sim$\-Xml\-Vect@{$\sim$\-Xml\-Vect}}
+\index{$\sim$\-Xml\-Vect@{$\sim$\-Xml\-Vect}!XmlVect@{Xml\-Vect}}
+\subsubsection[{$\sim$\-Xml\-Vect}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Vect\-::$\sim$\-Xml\-Vect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classXmlVect_a0a27cde8a84f647d128260ac5df76165}
+Destruktor Zwalnie pamiec przydzielona na tablice. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classXmlVect_a105c1cd2e05c3f8512d71adbd08e91ac}{\index{Xml\-Vect@{Xml\-Vect}!from\-\_\-xml@{from\-\_\-xml}}
+\index{from\-\_\-xml@{from\-\_\-xml}!XmlVect@{Xml\-Vect}}
+\subsubsection[{from\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}void Xml\-Vect\-::from\-\_\-xml (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlVect_a105c1cd2e05c3f8512d71adbd08e91ac}
+Funkcja from xml. Wczytuje do obiektu z fomatu X\-M\-L. Argumentem jest zmienna plikowa wskazujaca na O\-T\-W\-A\-R\-T\-Y plik. 
+
+Implements \hyperlink{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{Xml\-Object}.
+
+\hypertarget{classXmlVect_aa8c43c842aad1b0aa7722f7eaf2245ef}{\index{Xml\-Vect@{Xml\-Vect}!push@{push}}
+\index{push@{push}!XmlVect@{Xml\-Vect}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}bool Xml\-Vect\-::push (
+\begin{DoxyParamCaption}
+\item[{{\bf Xml\-Object\-\_\-string}}]{no}
+\end{DoxyParamCaption}
+)}}\label{classXmlVect_aa8c43c842aad1b0aa7722f7eaf2245ef}
+Funkcja push. Pozwala dodac nowy obiekt \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} na koncu tablicy(\-O ile jest jeszcze miejsce). \hypertarget{classXmlVect_af89d6523826f072d67f131d0ba4312aa}{\index{Xml\-Vect@{Xml\-Vect}!remove@{remove}}
+\index{remove@{remove}!XmlVect@{Xml\-Vect}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}bool Xml\-Vect\-::remove (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classXmlVect_af89d6523826f072d67f131d0ba4312aa}
+Funkcja remove. Pozwala usunac obiekt \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} na koncu tablicy(\-O ile tablica nie jest pusta). \hypertarget{classXmlVect_a6679bc57a3e6712b99b806f1887e2dc9}{\index{Xml\-Vect@{Xml\-Vect}!ret\-\_\-elem@{ret\-\_\-elem}}
+\index{ret\-\_\-elem@{ret\-\_\-elem}!XmlVect@{Xml\-Vect}}
+\subsubsection[{ret\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Vect\-::ret\-\_\-elem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlVect_a6679bc57a3e6712b99b806f1887e2dc9}
+Funkcja return element. Zwraca wartosc element. 
+
+Implements \hyperlink{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{Xml\-Object}.
+
+\hypertarget{classXmlVect_a5e67ef9b8b9faf9062b6cac413f196a4}{\index{Xml\-Vect@{Xml\-Vect}!to\-\_\-xml@{to\-\_\-xml}}
+\index{to\-\_\-xml@{to\-\_\-xml}!XmlVect@{Xml\-Vect}}
+\subsubsection[{to\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Vect\-::to\-\_\-xml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlVect_a5e67ef9b8b9faf9062b6cac413f196a4}
+Funkcja to xml. Parsuje obiekt do formatu X\-M\-L i zwraca w postaci napisu(string). 
+
+Implements \hyperlink{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{Xml\-Object}.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{XmlObject_8h}{Xml\-Object.\-h}\item 
+Xml\-Object.\-cpp\end{DoxyCompactItemize}

@@ -15,22 +15,24 @@ using namespace std;
 
 int main()
 {
-	/*string imie="Jan", nazw="Kowalski";
+	string imie="Jan", nazw="Kowalski";
 	char plec='f';
 	int id=123456, wzrost=14;
 	string file="test.xml";
 	ifstream File;
 	ofstream File2;
-	Person ktos(imie, nazw, plec, id, wzrost);
+	Person ktos(imie, nazw, plec, id, wzrost,"friends","friend",3);
 	Person ktos2("stas", "nieczyj", 'm', 876, 123);
-	File.open(file.c_str(), fstream::in);
-	File>>ktos2;
+	XmlObject_string myfriend("friend",imie);
+	ktos.add_pers(myfriend);
+	ktos.add_pers(myfriend);
+	ktos.add_pers(myfriend);
+	File2.open(file.c_str(), fstream::out);
+	File2<<ktos;
 
-	File.close();
-	cout<<ktos<<endl<<ktos2;*/
-	XmlVect<3> costam;
-	XmlObject_string cos("friend", "Karl");
-	costam.push(cos);
+	File2.close();
+	cout<<ktos<<endl<<ktos2;
+
 
 
 

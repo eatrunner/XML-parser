@@ -1,0 +1,117 @@
+\hypertarget{classXmlObject__char}{\section{Xml\-Object\-\_\-char Class Reference}
+\label{classXmlObject__char}\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}}
+}
+
+
+{\ttfamily \#include $<$Xml\-Object.\-h$>$}
+
+Inheritance diagram for Xml\-Object\-\_\-char\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classXmlObject__char}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classXmlObject__char_a593b9a08b971c8b219ffc3a65d224d8d}{Xml\-Object\-\_\-char} (string, char=0)
+\item 
+virtual string \hyperlink{classXmlObject__char_a7caa4d2b62ce3240cb6721ca9ac1150d}{to\-\_\-xml} ()
+\item 
+void \hyperlink{classXmlObject__char_a06b20ae9d07bd741de017a08895d0da8}{from\-\_\-xml} (ifstream \&)
+\item 
+string \hyperlink{classXmlObject__char_a45df01ffd190f0e33f673f2082b0ff8a}{ret\-\_\-elem} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \& \hyperlink{classXmlObject__char_a5559be49bfe5a30e2e39e19aacf4016d}{operator$>$$>$} (ifstream \&File, \hyperlink{classXmlObject__char}{Xml\-Object\-\_\-char} \&x)
+\item 
+ofstream \& \hyperlink{classXmlObject__char_a573187365149e426097b27ebbf8e9da3}{operator$<$$<$} (ofstream \&File, \hyperlink{classXmlObject__char}{Xml\-Object\-\_\-char} x)
+\item 
+ostream \& \hyperlink{classXmlObject__char_a47a42d8624b5b6ce6252d2cf6a815b8a}{operator$<$$<$} (ostream \&os, \hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string} x)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Klasa \hyperlink{classXmlObject__char}{Xml\-Object\-\_\-char} dziedziczy po \hyperlink{classXmlObject}{Xml\-Object}. Przechowuje znaki. Posiada wszytkie metody potrzebne do parsowania do X\-M\-L i odczytu. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classXmlObject__char_a593b9a08b971c8b219ffc3a65d224d8d}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}}
+\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{Xml\-Object\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Object\-\_\-char\-::\-Xml\-Object\-\_\-char (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem, }
+\item[{char}]{xmark = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classXmlObject__char_a593b9a08b971c8b219ffc3a65d224d8d}
+Konstruktor. Argumenty\-: wartosc docelowa element, wartosc docelowa mark. Mark domyslnie ustawiane na 0. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classXmlObject__char_a06b20ae9d07bd741de017a08895d0da8}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!from\-\_\-xml@{from\-\_\-xml}}
+\index{from\-\_\-xml@{from\-\_\-xml}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{from\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}void Xml\-Object\-\_\-char\-::from\-\_\-xml (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__char_a06b20ae9d07bd741de017a08895d0da8}
+Funkcja from xml. Wczytuje do obiektu z fomatu X\-M\-L. Argumentem jest zmienna plikowa wskazujaca na O\-T\-W\-A\-R\-T\-Y plik. 
+
+Implements \hyperlink{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{Xml\-Object}.
+
+\hypertarget{classXmlObject__char_a45df01ffd190f0e33f673f2082b0ff8a}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!ret\-\_\-elem@{ret\-\_\-elem}}
+\index{ret\-\_\-elem@{ret\-\_\-elem}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{ret\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Object\-\_\-char\-::ret\-\_\-elem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__char_a45df01ffd190f0e33f673f2082b0ff8a}
+Funkcja return element. Zwraca wartosc element. 
+
+Implements \hyperlink{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{Xml\-Object}.
+
+\hypertarget{classXmlObject__char_a7caa4d2b62ce3240cb6721ca9ac1150d}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!to\-\_\-xml@{to\-\_\-xml}}
+\index{to\-\_\-xml@{to\-\_\-xml}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{to\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Object\-\_\-char\-::to\-\_\-xml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject__char_a7caa4d2b62ce3240cb6721ca9ac1150d}
+Funkcja to xml. Parsuje obiekt do formatu X\-M\-L i zwraca w postaci napisu(string). 
+
+Implements \hyperlink{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{Xml\-Object}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classXmlObject__char_a573187365149e426097b27ebbf8e9da3}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{File, }
+\item[{{\bf Xml\-Object\-\_\-char}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__char_a573187365149e426097b27ebbf8e9da3}
+Zaprzyjazniony operator. Umozliwia parsowanie do zmiennej plikowej (File) z obiektu (obiekt) uzywajac zapisu\-: File$<$$<$obiekt; \hypertarget{classXmlObject__char_a47a42d8624b5b6ce6252d2cf6a815b8a}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{{\bf Xml\-Object\-\_\-string}}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__char_a47a42d8624b5b6ce6252d2cf6a815b8a}
+Zaprzyjazniony operator. Umozliwia parsowanie do strumienia wyjsciowego (cout) z obiektu (obiekt) uzywajac zapisu\-: cout$<$$<$obiekt; \hypertarget{classXmlObject__char_a5559be49bfe5a30e2e39e19aacf4016d}{\index{Xml\-Object\-\_\-char@{Xml\-Object\-\_\-char}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!XmlObject_char@{Xml\-Object\-\_\-char}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}ifstream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File, }
+\item[{{\bf Xml\-Object\-\_\-char} \&}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classXmlObject__char_a5559be49bfe5a30e2e39e19aacf4016d}
+Zaprzyjazniony operator. Umozliwia odczyt ze zmiennej plikowej (File) do obiektu (obiekt) uzywajac zapisu\-: File$>$$>$obiekt; Plik musi zawierac strukture w formacie X\-M\-L. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{XmlObject_8h}{Xml\-Object.\-h}\item 
+Xml\-Object.\-cpp\end{DoxyCompactItemize}

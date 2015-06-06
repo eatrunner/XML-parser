@@ -1,0 +1,140 @@
+\hypertarget{classPerson}{\section{Person Class Reference}
+\label{classPerson}\index{Person@{Person}}
+}
+
+
+{\ttfamily \#include $<$Person.\-h$>$}
+
+Inheritance diagram for Person\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPerson}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPerson_a709471c96e7285da132e771e5b319149}{Person} (string, string, char=0, int=0, int=0, string=\char`\"{}friends\char`\"{}, string=\char`\"{}friend\char`\"{}, int=1)
+\item 
+string \hyperlink{classPerson_a1765bb0876c1fcf995641b35a8b65f54}{to\-\_\-xml} ()
+\item 
+void \hyperlink{classPerson_aea7c2872014913c743b863a11927cb79}{from\-\_\-xml} (ifstream \&)
+\item 
+void \hyperlink{classPerson_ad3cdf9ec902f7b024d16534934ce4be0}{wypisz} ()
+\item 
+string \hyperlink{classPerson_a9826c568c7042e276014b5265a696295}{ret\-\_\-elem} ()
+\item 
+void \hyperlink{classPerson_a69f7f76d5a500cc45292f25f4ccc9de7}{add\-\_\-pers} (\hyperlink{classXmlObject__string}{Xml\-Object\-\_\-string})
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ifstream \& \hyperlink{classPerson_ac0b416688c8a0b4d3088639af70e83f9}{operator$>$$>$} (ifstream \&, \hyperlink{classPerson}{Person} \&)
+\item 
+ofstream \& \hyperlink{classPerson_af1cfee572bae052b68a2828ae6a8afb1}{operator$<$$<$} (ofstream \&, \hyperlink{classPerson}{Person})
+\item 
+ostream \& \hyperlink{classPerson_aba72915725aa68efe29811edaa685801}{operator$<$$<$} (ostream \&, \hyperlink{classPerson}{Person})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa \hyperlink{classPerson}{Person} dziedziczy po \hyperlink{classXmlObject}{Xml\-Object}. Docelowa struktura sparsowania do formatu X\-M\-L. Posiada wszyskie funkcja do parsowania w formacie X\-M\-L. Zawiera takie informacje jak\-:imie, nazwisko, plec, nr pesel, wzrost, lista znajomych. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPerson_a709471c96e7285da132e771e5b319149}{\index{Person@{Person}!Person@{Person}}
+\index{Person@{Person}!Person@{Person}}
+\subsubsection[{Person}]{\setlength{\rightskip}{0pt plus 5cm}Person\-::\-Person (
+\begin{DoxyParamCaption}
+\item[{string}]{xname, }
+\item[{string}]{xsurnm, }
+\item[{char}]{xsex = {\ttfamily 0}, }
+\item[{int}]{x\-Id = {\ttfamily 0}, }
+\item[{int}]{xwzrost = {\ttfamily 0}, }
+\item[{string}]{xfriends = {\ttfamily \char`\"{}friends\char`\"{}}, }
+\item[{string}]{vect\-Elem = {\ttfamily \char`\"{}friend\char`\"{}}, }
+\item[{int}]{size = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a709471c96e7285da132e771e5b319149}
+Konstruktor. Pozwala ustawic wszystkie atrybuty osoby wedlug koljenosci ich wystepowania. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classPerson_a69f7f76d5a500cc45292f25f4ccc9de7}{\index{Person@{Person}!add\-\_\-pers@{add\-\_\-pers}}
+\index{add\-\_\-pers@{add\-\_\-pers}!Person@{Person}}
+\subsubsection[{add\-\_\-pers}]{\setlength{\rightskip}{0pt plus 5cm}void Person\-::add\-\_\-pers (
+\begin{DoxyParamCaption}
+\item[{{\bf Xml\-Object\-\_\-string}}]{no}
+\end{DoxyParamCaption}
+)}}\label{classPerson_a69f7f76d5a500cc45292f25f4ccc9de7}
+Funkcja add person. Pozwala dodac nowego przyjaciela do listy. \hypertarget{classPerson_aea7c2872014913c743b863a11927cb79}{\index{Person@{Person}!from\-\_\-xml@{from\-\_\-xml}}
+\index{from\-\_\-xml@{from\-\_\-xml}!Person@{Person}}
+\subsubsection[{from\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}void Person\-::from\-\_\-xml (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPerson_aea7c2872014913c743b863a11927cb79}
+Funkcja from xml. Wczytuje do obiektu z fomatu X\-M\-L. Argumentem jest zmienna plikowa wskazujaca na O\-T\-W\-A\-R\-T\-Y plik. 
+
+Implements \hyperlink{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{Xml\-Object}.
+
+\hypertarget{classPerson_a9826c568c7042e276014b5265a696295}{\index{Person@{Person}!ret\-\_\-elem@{ret\-\_\-elem}}
+\index{ret\-\_\-elem@{ret\-\_\-elem}!Person@{Person}}
+\subsubsection[{ret\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}string Person\-::ret\-\_\-elem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPerson_a9826c568c7042e276014b5265a696295}
+Funkcja return element. Zwraca wartosc element. 
+
+Implements \hyperlink{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{Xml\-Object}.
+
+\hypertarget{classPerson_a1765bb0876c1fcf995641b35a8b65f54}{\index{Person@{Person}!to\-\_\-xml@{to\-\_\-xml}}
+\index{to\-\_\-xml@{to\-\_\-xml}!Person@{Person}}
+\subsubsection[{to\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}string Person\-::to\-\_\-xml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classPerson_a1765bb0876c1fcf995641b35a8b65f54}
+Funkcja to xml. Parsuje obiekt do formatu X\-M\-L i zwraca w postaci napisu(string). 
+
+Implements \hyperlink{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{Xml\-Object}.
+
+\hypertarget{classPerson_ad3cdf9ec902f7b024d16534934ce4be0}{\index{Person@{Person}!wypisz@{wypisz}}
+\index{wypisz@{wypisz}!Person@{Person}}
+\subsubsection[{wypisz}]{\setlength{\rightskip}{0pt plus 5cm}void Person\-::wypisz (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPerson_ad3cdf9ec902f7b024d16534934ce4be0}
+Funkcja wypisz. Wypisuje cala strukture \hyperlink{classPerson}{Person} w formacie X\-M\-L. 
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{classPerson_af1cfee572bae052b68a2828ae6a8afb1}{\index{Person@{Person}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Person@{Person}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{File, }
+\item[{{\bf Person}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classPerson_af1cfee572bae052b68a2828ae6a8afb1}
+Zaprzyjazniony operator. Umozliwia parsowanie do zmiennej plikowej (File) z obiektu (obiekt) uzywajac zapisu\-: File$<$$<$obiekt; \hypertarget{classPerson_aba72915725aa68efe29811edaa685801}{\index{Person@{Person}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Person@{Person}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{{\bf Person}}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classPerson_aba72915725aa68efe29811edaa685801}
+Zaprzyjazniony operator. Umozliwia parsowanie do strumienia wyjsciowego (cout) z obiektu (obiekt) uzywajac zapisu\-: cout$<$$<$obiekt; \hypertarget{classPerson_ac0b416688c8a0b4d3088639af70e83f9}{\index{Person@{Person}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Person@{Person}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}ifstream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{File, }
+\item[{{\bf Person} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{classPerson_ac0b416688c8a0b4d3088639af70e83f9}
+Zaprzyjazniony operator. Umozliwia odczyt ze zmiennej plikowej (File) do obiektu (obiekt) uzywajac zapisu\-: File$>$$>$obiekt; Plik musi zawierac strukture w formacie X\-M\-L. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Person_8h}{Person.\-h}\item 
+Person.\-cpp\end{DoxyCompactItemize}

@@ -1,0 +1,111 @@
+\hypertarget{classXmlObject}{\section{Xml\-Object Class Reference}
+\label{classXmlObject}\index{Xml\-Object@{Xml\-Object}}
+}
+
+
+{\ttfamily \#include $<$Xml\-Object.\-h$>$}
+
+Inheritance diagram for Xml\-Object\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.931034cm]{classXmlObject}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classXmlObject_a98b14e9c386ae0aa45a3a99d922c642f}{Xml\-Object} (string)
+\item 
+virtual \hyperlink{classXmlObject_aa25f0aab0b3f4b9f94185285d6297f20}{$\sim$\-Xml\-Object} ()
+\item 
+virtual string \hyperlink{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{to\-\_\-xml} ()=0
+\item 
+virtual void \hyperlink{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{from\-\_\-xml} (ifstream \&)=0
+\item 
+virtual string \hyperlink{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{ret\-\_\-elem} ()=0
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classXmlObject_a55616473c9f22c01fd3f3d5a31a2a72f}{set\-\_\-elem} (string)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classXmlObject_a61cc11441cc570e229cd4cf2e8b1736f}{element}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa \hyperlink{classXmlObject}{Xml\-Object} jest interfejsem. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classXmlObject_a98b14e9c386ae0aa45a3a99d922c642f}{\index{Xml\-Object@{Xml\-Object}!Xml\-Object@{Xml\-Object}}
+\index{Xml\-Object@{Xml\-Object}!XmlObject@{Xml\-Object}}
+\subsubsection[{Xml\-Object}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Object\-::\-Xml\-Object (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem}
+\end{DoxyParamCaption}
+)}}\label{classXmlObject_a98b14e9c386ae0aa45a3a99d922c642f}
+Kostruktor. \hypertarget{classXmlObject_aa25f0aab0b3f4b9f94185285d6297f20}{\index{Xml\-Object@{Xml\-Object}!$\sim$\-Xml\-Object@{$\sim$\-Xml\-Object}}
+\index{$\sim$\-Xml\-Object@{$\sim$\-Xml\-Object}!XmlObject@{Xml\-Object}}
+\subsubsection[{$\sim$\-Xml\-Object}]{\setlength{\rightskip}{0pt plus 5cm}Xml\-Object\-::$\sim$\-Xml\-Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classXmlObject_aa25f0aab0b3f4b9f94185285d6297f20}
+Wirtualny destruktor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classXmlObject_a1f45234b87c92b116b5d036875d46d65}{\index{Xml\-Object@{Xml\-Object}!from\-\_\-xml@{from\-\_\-xml}}
+\index{from\-\_\-xml@{from\-\_\-xml}!XmlObject@{Xml\-Object}}
+\subsubsection[{from\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Xml\-Object\-::from\-\_\-xml (
+\begin{DoxyParamCaption}
+\item[{ifstream \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classXmlObject_a1f45234b87c92b116b5d036875d46d65}
+Funkcja from xml. Sluzy do odczytu struktury z formatu X\-M\-L. Jako argument przyjmuje zmienna plikowa 
+
+Implemented in \hyperlink{classXmlVect_a105c1cd2e05c3f8512d71adbd08e91ac}{Xml\-Vect}, \hyperlink{classXmlObject__char_a06b20ae9d07bd741de017a08895d0da8}{Xml\-Object\-\_\-char}, \hyperlink{classXmlObject__int_a1638d6bef2ad920f60a633f8fd580ab0}{Xml\-Object\-\_\-int}, \hyperlink{classXmlObject__string_a45076d31e063208d1386741f2e1074d3}{Xml\-Object\-\_\-string}, and \hyperlink{classPerson_aea7c2872014913c743b863a11927cb79}{Person}.
+
+\hypertarget{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}{\index{Xml\-Object@{Xml\-Object}!ret\-\_\-elem@{ret\-\_\-elem}}
+\index{ret\-\_\-elem@{ret\-\_\-elem}!XmlObject@{Xml\-Object}}
+\subsubsection[{ret\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Xml\-Object\-::ret\-\_\-elem (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classXmlObject_ae6aa20b1e0ef049e6cc8ddedc2cd8761}
+Funkcja retrun element. Zwraca wartosc zmienna element. 
+
+Implemented in \hyperlink{classXmlVect_a6679bc57a3e6712b99b806f1887e2dc9}{Xml\-Vect}, \hyperlink{classXmlObject__char_a45df01ffd190f0e33f673f2082b0ff8a}{Xml\-Object\-\_\-char}, \hyperlink{classXmlObject__int_a4775d210333968667b9a533fcf2ab1df}{Xml\-Object\-\_\-int}, \hyperlink{classXmlObject__string_a14cc967eb78c9293c49055d54d602717}{Xml\-Object\-\_\-string}, and \hyperlink{classPerson_a9826c568c7042e276014b5265a696295}{Person}.
+
+\hypertarget{classXmlObject_a55616473c9f22c01fd3f3d5a31a2a72f}{\index{Xml\-Object@{Xml\-Object}!set\-\_\-elem@{set\-\_\-elem}}
+\index{set\-\_\-elem@{set\-\_\-elem}!XmlObject@{Xml\-Object}}
+\subsubsection[{set\-\_\-elem}]{\setlength{\rightskip}{0pt plus 5cm}void Xml\-Object\-::set\-\_\-elem (
+\begin{DoxyParamCaption}
+\item[{string}]{xelem}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classXmlObject_a55616473c9f22c01fd3f3d5a31a2a72f}
+Funckja set element. Pozwala ustawić nowa wartosc zmiennej element. \hypertarget{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}{\index{Xml\-Object@{Xml\-Object}!to\-\_\-xml@{to\-\_\-xml}}
+\index{to\-\_\-xml@{to\-\_\-xml}!XmlObject@{Xml\-Object}}
+\subsubsection[{to\-\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Xml\-Object\-::to\-\_\-xml (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classXmlObject_a23b560b6ef62e13cbe227824df5365c3}
+Funkcja to xml. Sluzy do parsowania obiektu do formatu X\-M\-L 
+
+Implemented in \hyperlink{classXmlVect_a5e67ef9b8b9faf9062b6cac413f196a4}{Xml\-Vect}, \hyperlink{classXmlObject__char_a7caa4d2b62ce3240cb6721ca9ac1150d}{Xml\-Object\-\_\-char}, \hyperlink{classXmlObject__int_a071bc574f78dfbb6824cc5a1c5a1e4d7}{Xml\-Object\-\_\-int}, \hyperlink{classXmlObject__string_aea62ae01f9fbbe6718c7269d9dc0591f}{Xml\-Object\-\_\-string}, and \hyperlink{classPerson_a1765bb0876c1fcf995641b35a8b65f54}{Person}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classXmlObject_a61cc11441cc570e229cd4cf2e8b1736f}{\index{Xml\-Object@{Xml\-Object}!element@{element}}
+\index{element@{element}!XmlObject@{Xml\-Object}}
+\subsubsection[{element}]{\setlength{\rightskip}{0pt plus 5cm}string Xml\-Object\-::element\hspace{0.3cm}{\ttfamily [protected]}}}\label{classXmlObject_a61cc11441cc570e229cd4cf2e8b1736f}
+element zawiera informacje i nazwie uzywanej struktury. 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{XmlObject_8h}{Xml\-Object.\-h}\item 
+Xml\-Object.\-cpp\end{DoxyCompactItemize}

@@ -1,6 +1,6 @@
 /*
- * XmlObject.cpp
- *
+ * \file XmlObject.cpp
+ * \Zawiera definicje funkcji klas zwartych w pliku XmlObject.h
  *  Created on: 30 maj 2015
  *      Author: karol
  */
@@ -10,12 +10,19 @@ XmlObject::XmlObject(string xelem):element(xelem){}
 
 void XmlObject::set_elem(string xelem)
 {
-	element=xelem;
+	if(xelem=="\0")
+		element.reserve(30);
+	else
+		element=xelem;
 }
 
 XmlObject::~XmlObject(){}
 
-XmlObject_string::XmlObject_string(string xelem,string xname):XmlObject(xelem),name(xname){}
+XmlObject_string::XmlObject_string(string xelem,string xname):XmlObject(xelem),name(xname)
+{
+	if(name=="\0")
+		name.reserve(30);
+}
 
 string XmlObject_string::to_xml()
 {
@@ -242,21 +249,24 @@ ostream& operator <<(ostream& os, XmlObject_char x)
 	return os;
 }
 
-template <int size>
-XmlVect<size>:: XmlVect()
-					:element(NULL),count(0),SIZE("SIZE", size), state(empty)
+XmlVect::XmlVect(string xelem, string elem_list, int size)
+					:XmlObject(xelem), count(0),state(empty), SIZE("SIZE", size)
 {
 	Tab=new XmlObject_string[size];
+	for(int i=0; i<SIZE.ret_value(); ++i)
+	{
+		Tab[i].set_elem(elem_list);
+	}
 }
 
-template <int size>
-XmlVect<size>::~XmlVect()
+
+XmlVect::~XmlVect()
 {
 	delete Tab;
 }
 
-template <int size>
-void XmlVect<size>::set_elem(string xelem, string elem_list)
+
+void XmlVect::set_elem(string xelem, string elem_list)
 {
 	element=xelem;
 	for(int i=0; i<SIZE.ret_value(); ++i)
@@ -265,8 +275,12 @@ void XmlVect<size>::set_elem(string xelem, string elem_list)
 	}
 }
 
-template < int size>
-bool XmlVect<size>::push(XmlObject_string no)
+string XmlVect::ret_elem()
+{
+	return element;
+}
+
+bool XmlVect::push(XmlObject_string no)
 {
 	if(state==full)
 	{
@@ -275,8 +289,8 @@ bool XmlVect<size>::push(XmlObject_string no)
 	}
 	else
 	{
-		++count;
 		Tab[count]=no;
+		++count;
 		if(count==SIZE.ret_value())
 			state=full;
 		if(state==empty)
@@ -286,15 +300,14 @@ bool XmlVect<size>::push(XmlObject_string no)
 
 }
 
-template <int size>
-bool XmlVect<size>::remove(int x)
+
+bool XmlVect::remove()
 {
 	if(state==empty)
 	{
 		cerr<<"pusty vector"<<endl;
 		return 0;
 	}
-	Tab[count]=NULL;
 	--count;
 	if(state==full)
 		state==some_elements;
@@ -303,11 +316,11 @@ bool XmlVect<size>::remove(int x)
 	return 1;
 }
 
-template <int size>
-string XmlVect<size>::to_xml()
+
+string XmlVect::to_xml()
 {
-	stringstream tmp=NULL;
-	string output=NULL;
+	stringstream tmp;
+
 	int size_tmp=SIZE.ret_value();
 	tmp<<"<"+element+'>';
 	SIZE.set_value(count);
@@ -318,17 +331,17 @@ string XmlVect<size>::to_xml()
 		cerr<<"Empty vector, nothing to parse."<<endl;
 		return 0;
 	}
-	for(int i=0; i<=count; ++i)
+	for(int i=0; i<count; ++i)
 	{
 		tmp<<Tab[i].to_xml();
 	}
 	tmp<<"</"+element+'>';
-	output=tmp.str();
+	string output=tmp.str();
 	return output;
 }
 
-template <int size>
-void XmlVect<size>::from_xml(ifstream& File)
+
+void XmlVect::from_xml(ifstream& File)
 {
 	char c=0;
 	string tmp='<'+element+'>';

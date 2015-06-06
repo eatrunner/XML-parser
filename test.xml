@@ -1,1 +1,1 @@
-<person><name>Jan</name><surname>Kowalski</surname><sex>f</sex><pesel>1230456</pesel><wzrost>1400</wzrost></person>
+<person><name>Jan</name><surname>Kowalski</surname><sex>f</sex><pesel>123456</pesel><wzrost>14</wzrost><friends><SIZE>3</SIZE><friend>Jan</friend><friend>Jan</friend><friend>Jan</friend></friends></person>
