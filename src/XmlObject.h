@@ -17,8 +17,10 @@ class XmlObject
 {
 protected:
 	string element;
+	void set_elem(string);
 public:
 	XmlObject(string);
+
 	virtual ~XmlObject();
 	virtual string to_xml()=0;
 	virtual void from_xml(ifstream&)=0;
@@ -30,10 +32,11 @@ class XmlObject_string:public XmlObject
 
 	string name;
 public:
-	XmlObject_string(string, string=NULL);
-	virtual string to_xml();
+	XmlObject_string(string=NULL, string=NULL);
+	string to_xml();
 	void from_xml(ifstream&);
 	string ret_elem();
+	void set_elem(string);
 	friend
 	ifstream& operator >>(ifstream& File, XmlObject_string& x);
 	friend
@@ -76,18 +79,21 @@ public:
 	ostream& operator <<(ostream& os, XmlObject_string x);
 };
 
-template <class C, int size=0>
-class Vect:public XmlObject
+template <int size>
+class XmlVect
 {
 
+	string element;
 	XmlObject_int SIZE;
-	C *Tab;
+
 	int count;
-	enum{empty, full, some__elements}state;
+	enum{empty, full, some_elements}state;
+	XmlObject_string *Tab;
 public:
-	Vect(string);
-	~Vect();
-	bool add(C);
+	XmlVect();
+	~XmlVect();
+	void set_elem(string, string);
+	bool push(XmlObject_string);
 	bool remove(int);
 	string to_xml();
 	void from_xml(ifstream&);

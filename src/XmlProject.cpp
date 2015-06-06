@@ -9,12 +9,13 @@
 #include <iostream>
 
 #include "Person.h"
+#include "XmlObject.h"
 using namespace std;
 
 
 int main()
 {
-	string imie="Jan", nazw="Kowalski";
+	/*string imie="Jan", nazw="Kowalski";
 	char plec='f';
 	int id=123456, wzrost=14;
 	string file="test.xml";
@@ -26,7 +27,12 @@ int main()
 	File>>ktos2;
 
 	File.close();
-	cout<<ktos<<endl<<ktos2;
+	cout<<ktos<<endl<<ktos2;*/
+	XmlVect<3> costam;
+	XmlObject_string cos("friend", "Karl");
+	costam.push(cos);
+
+
 
 	return 0;
 }

@@ -8,6 +8,11 @@
 
 XmlObject::XmlObject(string xelem):element(xelem){}
 
+void XmlObject::set_elem(string xelem)
+{
+	element=xelem;
+}
+
 XmlObject::~XmlObject(){}
 
 XmlObject_string::XmlObject_string(string xelem,string xname):XmlObject(xelem),name(xname){}
@@ -16,6 +21,11 @@ string XmlObject_string::to_xml()
 {
 	stringstream tmp;
 	string strm;
+	if(element=="\0")
+	{
+		cerr<<"Pusty element w XmlObject_string."<<endl;
+		return 0;
+	}
 	tmp<<'<'<<XmlObject::element<<'>'<<name<<"</"<<XmlObject::element<<'>';
 	strm=tmp.str();
 	return strm;
@@ -54,6 +64,11 @@ void XmlObject_string::from_xml(ifstream& File)
 string XmlObject_string::ret_elem()
 {
 	return XmlObject::element;
+}
+
+void XmlObject_string::set_elem(string xelem)
+{
+	XmlObject::set_elem(xelem);
 }
 
 ifstream& operator >>(ifstream& File, XmlObject_string& x)
@@ -227,21 +242,31 @@ ostream& operator <<(ostream& os, XmlObject_char x)
 	return os;
 }
 
-template <class XmlObject_string, int size>
-Vect<XmlObject_string, size>::Vect(string xelem)
-					:XmlObject(xelem),count(0),SIZE(size), state(empty)
+template <int size>
+XmlVect<size>:: XmlVect()
+					:element(NULL),count(0),SIZE("SIZE", size), state(empty)
 {
 	Tab=new XmlObject_string[size];
 }
 
-template <class XmlObject_string, int size>
-Vect<XmlObject_string, size>::~Vect()
+template <int size>
+XmlVect<size>::~XmlVect()
 {
 	delete Tab;
 }
 
-template <class XmlObject_string, int size>
-bool Vect<XmlObject_string, size>::add(XmlObject_string no)
+template <int size>
+void XmlVect<size>::set_elem(string xelem, string elem_list)
+{
+	element=xelem;
+	for(int i=0; i<SIZE.ret_value(); ++i)
+	{
+		Tab[i].set_elem(elem_list);
+	}
+}
+
+template < int size>
+bool XmlVect<size>::push(XmlObject_string no)
 {
 	if(state==full)
 	{
@@ -255,14 +280,14 @@ bool Vect<XmlObject_string, size>::add(XmlObject_string no)
 		if(count==SIZE.ret_value())
 			state=full;
 		if(state==empty)
-			state=some__elements;
+			state=some_elements;
 		return 1;
 	}
 
 }
 
-template <class XmlObject_string, int size>
-bool Vect<XmlObject_string, size>::remove(int x)
+template <int size>
+bool XmlVect<size>::remove(int x)
 {
 	if(state==empty)
 	{
@@ -272,14 +297,14 @@ bool Vect<XmlObject_string, size>::remove(int x)
 	Tab[count]=NULL;
 	--count;
 	if(state==full)
-		state==some__elements;
+		state==some_elements;
 	if(count==0)
 		state=empty;
 	return 1;
 }
 
-template <class XmlObject_string, int size>
-string Vect<XmlObject_string, size>::to_xml()
+template <int size>
+string XmlVect<size>::to_xml()
 {
 	stringstream tmp=NULL;
 	string output=NULL;
@@ -302,8 +327,8 @@ string Vect<XmlObject_string, size>::to_xml()
 	return output;
 }
 
-template <class XmlObject_string, int size>
-void Vect<XmlObject_string, size>::from_xml(ifstream& File)
+template <int size>
+void XmlVect<size>::from_xml(ifstream& File)
 {
 	char c=0;
 	string tmp='<'+element+'>';
@@ -316,6 +341,21 @@ void Vect<XmlObject_string, size>::from_xml(ifstream& File)
 		}
 	}
 	SIZE.from_xml(File);
+	delete Tab;
+	Tab=new XmlObject_string[SIZE.ret_value()];
+	for(int i=0; i<=SIZE.ret_value(); ++i)
+	{
+		Tab[i].from_xml(File);
+	}
+	tmp="</"+element+'>';
+	for(int i=0;i<tmp.length() && File>>c;i++)
+	{
+		if(tmp[i]!=c)
+		{
+			cerr<<"Blad pliku. Niepoprawny Xml.Element: "<<element<<endl;
+			return;
+		}
+	}
 
 
 }
