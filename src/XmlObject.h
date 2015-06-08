@@ -13,6 +13,7 @@
 #include <sstream>
 #include <iostream>
 #include <cmath>
+#include <vector>
 using namespace std;
 //*************************************KLASA XmlObject***************************************
 /**
@@ -244,29 +245,17 @@ public:
  */
 class XmlVect:public XmlObject
 {
-	/**Zmienna count.
-	 * Zawiera ilosc elemtow tablicy.
-	 */
-	int count;
-	/**Zmienna state.
-	 * Zawiera informacja o zawartosci tablicy(empty, full, some_elements).
-	 */
-	enum{empty, full, some_elements}state;
-	/**Obiekt SIZE.
-	 * Zawiera wielkosc tablicy.
-	 */
-	XmlObject_int SIZE;
-	/**Wskaznik na tablice obiektow typu XmlObject_string.
+	/**Kontener obiektow typu XmlObject_string.
 	 *
 	 */
-	XmlObject_string* Tab;
+	vector<XmlObject_string> tab;
 public:
 	/**Kostruktor.
 	 * Argumenty:wartosc docelowa zmiennej element,
 	 * wartosc docelowa zmienne element elementow listy,
 	 * wielkosc tablicy elementow.
 	 */
-	XmlVect(string, string, int);
+	XmlVect(string, string);
 	/**Destruktor
 	 * Zwalnie pamiec przydzielona na tablice.
 	 */
@@ -279,11 +268,11 @@ public:
 	/**Funkcja push.
 	 * Pozwala dodac nowy obiekt XmlObject_string na koncu tablicy(O ile jest jeszcze miejsce).
 	 */
-	bool push(XmlObject_string);
+	void push(XmlObject_string);
 	/**Funkcja remove.
 	 * Pozwala usunac obiekt XmlObject_string na koncu tablicy(O ile tablica nie jest pusta).
 	 */
-	bool remove();
+	void remove();
 	/**Funkcja to xml.
 	 * Parsuje obiekt do formatu XML i zwraca w postaci napisu(string).
 	 */

@@ -8,10 +8,10 @@
 #include "Person.h"
 
 Person::Person(string xname, string xsurnm, char xsex, int xId, int xwzrost, string xfriends,
-		string vectElem, int size):
+		string vectElem):
 					XmlObject("person"),name("name",xname), surname("surname",xsurnm),
 					sex("sex",xsex), pesel("pesel",xId), wzrost("wzrost",xwzrost),
-					friends(xfriends, vectElem, size){}
+					friends(xfriends, vectElem){}
 
 
 string Person::to_xml()

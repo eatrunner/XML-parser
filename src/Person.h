@@ -47,7 +47,7 @@ public:
 	/**Konstruktor.
 	 * Pozwala ustawic wszystkie atrybuty osoby wedlug koljenosci ich wystepowania.
 	 */
-	Person(string, string, char=0, int=0, int=0, string="friends", string="friend", int=1);
+	Person(string, string, char=0, int=0, int=0, string="friends", string="friend");
 	/**Funkcja to xml.
 	 * Parsuje obiekt do formatu XML i zwraca w postaci napisu(string).
 	 */

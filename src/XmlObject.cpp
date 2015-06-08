@@ -251,30 +251,22 @@ ostream& operator <<(ostream& os, XmlObject_char x)
 	return os;
 }
 
-XmlVect::XmlVect(string xelem, string elem_list, int size)
-					:XmlObject(xelem), count(0),state(empty), SIZE("SIZE", size)
-{
-	Tab=new XmlObject_string[size];
-	for(int i=0; i<SIZE.ret_value(); ++i)
-	{
-		Tab[i].set_elem(elem_list);
-	}
-}
+XmlVect::XmlVect(string xelem, string elem_list)
+					:XmlObject(xelem){}
 
 
 XmlVect::~XmlVect()
-{
-	delete Tab;
-}
+{}
 
 
 void XmlVect::set_elem(string xelem, string elem_list)
 {
 	element=xelem;
-	for(int i=0; i<SIZE.ret_value(); ++i)
-	{
-		Tab[i].set_elem(elem_list);
-	}
+	if(!tab.empty())
+		for(vector<XmlObject_string>::iterator it=tab.begin(); it!=tab.end(); ++it)
+		{
+			it->set_elem(elem_list);
+		}
 }
 
 string XmlVect::ret_elem()
@@ -282,60 +274,26 @@ string XmlVect::ret_elem()
 	return element;
 }
 
-bool XmlVect::push(XmlObject_string no)
+void XmlVect::push(XmlObject_string no)
 {
-	if(state==full)
-	{
-		cerr<<"pelny vector"<<endl;
-		return 0;
-	}
-	else
-	{
-		Tab[count]=no;
-		++count;
-		if(count==SIZE.ret_value())
-			state=full;
-		if(state==empty)
-			state=some_elements;
-		return 1;
-	}
-
+	tab.push_back(no);
 }
 
 
-bool XmlVect::remove()
+void XmlVect::remove()
 {
-	if(state==empty)
-	{
-		cerr<<"pusty vector"<<endl;
-		return 0;
-	}
-	--count;
-	if(state==full)
-		state==some_elements;
-	if(count==0)
-		state=empty;
-	return 1;
+	tab.pop_back();
 }
 
 
 string XmlVect::to_xml()
 {
 	stringstream tmp;
-
-	int size_tmp=SIZE.ret_value();
-	tmp<<"<"+element+'>';
-	SIZE.set_value(count);
-	tmp<<SIZE.to_xml();
-	SIZE.set_value(size_tmp);
-	if(state==empty)
+	tmp<<"<"+element+">";
+	tmp<<"<SIZE>"<<tab.size()<<"</SIZE>";
+	for(vector<XmlObject_string>::iterator it=tab.begin(); it!=tab.end(); ++it)
 	{
-		cerr<<"Empty vector, nothing to parse."<<endl;
-		return 0;
-	}
-	for(int i=0; i<count; ++i)
-	{
-		tmp<<Tab[i].to_xml();
+		tmp<<it->to_xml();
 	}
 	tmp<<"</"+element+'>';
 	string output=tmp.str();
@@ -347,6 +305,8 @@ void XmlVect::from_xml(ifstream& File)
 {
 	char c=0;
 	string tmp='<'+element+'>';
+	XmlObject_int size("SIZE");
+	XmlObject_string myfriend("friend", "\0");
 	for(int i=0;i<tmp.length() && File>>c;i++)
 	{
 		if(tmp[i]!=c)
@@ -355,13 +315,12 @@ void XmlVect::from_xml(ifstream& File)
 			return;
 		}
 	}
-	SIZE.from_xml(File);
-	delete Tab;
-	Tab=new XmlObject_string[SIZE.ret_value()];
-	set_elem("friends", "friend");
-	for(int i=0; i<=SIZE.ret_value(); ++i)
+	size.from_xml(File);
+	tab.clear();
+	for(int j=0; j<size.ret_value(); ++j)
 	{
-		Tab[i].from_xml(File);
+		myfriend.from_xml(File);
+		tab.push_back(myfriend);
 	}
 	tmp="</"+element+'>';
 	for(int i=0;i<tmp.length() && File>>c;i++)
