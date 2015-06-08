@@ -22,15 +22,16 @@ int main()
 	ifstream File;
 	ofstream File2;
 	Person ktos(imie, nazw, plec, id, wzrost,"friends","friend",3);
-	Person ktos2("stas", "nieczyj", 'm', 876, 123);
-	XmlObject_string myfriend("friend",imie);
+	Person ktos2("stas", "nieczyj", 'm', 876, 123,"friends", "friend", 1);
+	XmlObject_string myfriend("friend","stas");
 	ktos.add_pers(myfriend);
 	ktos.add_pers(myfriend);
 	ktos.add_pers(myfriend);
-	File2.open(file.c_str(), fstream::out);
-	File2<<ktos;
+	ktos2.add_pers(myfriend);
+	File.open(file.c_str(), fstream::in);
+	File>>ktos;
 
-	File2.close();
+	File.close();
 	cout<<ktos<<endl<<ktos2;
 
 

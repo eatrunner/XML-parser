@@ -39,7 +39,7 @@ public:
 	 *
 	 */
 
-	virtual ~XmlObject();
+	virtual ~XmlObject()=0;
 	/**Funkcja to xml.
 	 * Sluzy do parsowania obiektu do formatu XML
 	 */
@@ -71,6 +71,10 @@ public:
 	 * Domyślnie ustawiane sa na wskazniki zerowe.
 	 */
 	XmlObject_string(string="\0", string="\0");
+	/**Destruktor klasy XmlObject_string.
+	 *
+	 */
+	~XmlObject_string();
 	/**Funkcja to xml.
 	 * Nie przyjmuje argumentow.
 	 * Parsuje obiekt do formatu XML (<element>name</element>)
@@ -255,7 +259,7 @@ class XmlVect:public XmlObject
 	/**Wskaznik na tablice obiektow typu XmlObject_string.
 	 *
 	 */
-	XmlObject_string *Tab;
+	XmlObject_string* Tab;
 public:
 	/**Kostruktor.
 	 * Argumenty:wartosc docelowa zmiennej element,

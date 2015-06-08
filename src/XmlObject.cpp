@@ -24,6 +24,8 @@ XmlObject_string::XmlObject_string(string xelem,string xname):XmlObject(xelem),n
 		name.reserve(30);
 }
 
+XmlObject_string::~XmlObject_string(){}
+
 string XmlObject_string::to_xml()
 {
 	stringstream tmp;
@@ -356,6 +358,7 @@ void XmlVect::from_xml(ifstream& File)
 	SIZE.from_xml(File);
 	delete Tab;
 	Tab=new XmlObject_string[SIZE.ret_value()];
+	set_elem("friends", "friend");
 	for(int i=0; i<=SIZE.ret_value(); ++i)
 	{
 		Tab[i].from_xml(File);

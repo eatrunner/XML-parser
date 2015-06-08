@@ -48,6 +48,7 @@ void Person::from_xml(ifstream& File)
 	sex.from_xml(File);
 	pesel.from_xml(File);
 	wzrost.from_xml(File);
+	friends.from_xml(File);
 	tmp="</"+element+">";
 	for(int i=0;i<tmp.length() && File>>c;i++)
 	{
